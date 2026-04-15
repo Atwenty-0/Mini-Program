@@ -150,15 +150,18 @@ function send() {
         state = "play";
     } else if(state == "play") {
         step++;
-        if(ipt == "0") { log("你放弃了！答案："+str); state="menu"; start(); return; }
-        if(ipt == str) { log("恭喜你猜对了！共猜测"+step+"次"); state="menu"; start(); return; }
+        if(ipt == "0") { log("很遗憾，目标诗句是："+str); state="menu"; start(); return; }
+        if(ipt == str) { log("恭喜你猜对了, 共猜测"+step+"次"); state="menu"; start(); return; }
         que = ipt; check(); printNow();
-        if(step >= rod) { log("次数用完！答案："+str); state="menu"; start(); }
+        if(step >= rod) { log("次数用完！目标诗句是："+str); state="menu"; start(); }
     }
 }
 
 function start() {
     log("\n==== 寻花令猜诗游戏 ====");
+    log("本程序为寻花令劣质山寨版，规则与原版一致\n");
+    log("tips:请务必不要输入逗号或句号\n");
+	
     log("开始游戏请按 1 , 结束游戏请按 2");
     state = "menu";
 }
